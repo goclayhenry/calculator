@@ -159,6 +159,7 @@ document.getElementById("zero").addEventListener("click", function()
 document.getElementById("add").addEventListener("click", function()
 {
     
+    //Try to use multiple operations together
     nums.push(currValue);
     currValue = 0;
     counter = 10.0;
