@@ -13,6 +13,7 @@ html {
     display: grid;
     grid-template-columns: 108px 108px 108px 108px;
     grid-template-rows: 72px 72px 72px 72px 72px 72px;
+    grid-gap: 5px 5px;
 }
 
 #screen {
@@ -53,7 +54,7 @@ html {
     grid-column-end: span 3;
 }
 
-#all_clear {
+#equal {
     width: 216px;
 }
 
@@ -62,6 +63,7 @@ button {
     border-style: solid;
     font-size: 24pt;
     font-family: 'Varela', sans-serif;
+    outline: 0;
 }
 
 button:hover {
