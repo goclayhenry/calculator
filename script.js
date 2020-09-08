@@ -1,187 +1,276 @@
 var screen = document.getElementById("screen");
 
-var sum = 0;
-
-var oldNum = -1;
-var newNum = -1;
+var nums = [0];
+var counter = 10.0;
 var sign = ' ';
+var currValue = 0;
+var sum = 0;
 
 document.getElementById("one").addEventListener("click", function()
 {
-    if (oldNum === -1)
+    
+    if (currValue === 0) 
     {
-        oldNum = 1;
+        currValue = 1;
     } else 
     {
-        newNum = 1;
+        currValue = (currValue * counter) + 1;
     }
-    screen.value = 1;
+    
+    screen.value = currValue;
 
 });
 
 document.getElementById("two").addEventListener("click", function()
 {
-    if (oldNum === -1)
+    
+    if (currValue === 0) 
     {
-        oldNum = 2;
+        currValue = 2;
     } else 
     {
-        newNum = 2;
+        currValue = (currValue * counter) + 2;
     }
+    
+    screen.value = currValue;
 
-    screen.value = 2;
 });
 
 document.getElementById("three").addEventListener("click", function()
 {
-    if (oldNum === -1)
+    
+    if (currValue === 0) 
     {
-        oldNum = 3;
+        currValue = 3;
     } else 
     {
-        newNum = 3;
+        currValue = (currValue * counter) + 3;
     }
+    
+    screen.value = currValue;
 
-    screen.value = 3;
 });
 
 document.getElementById("four").addEventListener("click", function()
 {
-    if (oldNum === -1)
+    
+    if (currValue === 0) 
     {
-        oldNum = 4;
+        currValue = 4;
     } else 
     {
-        newNum = 4;
+        currValue = (currValue * counter) + 4;
     }
+    
+    screen.value = currValue;
 
-    screen.value = 4;
 });
 
 document.getElementById("five").addEventListener("click", function()
 {
-    if (oldNum === -1)
+    
+    if (currValue === 0) 
     {
-        oldNum = 5;
+        currValue = 5;
     } else 
     {
-        newNum = 5;
+        currValue = (currValue * counter) + 5;
     }
+    
+    screen.value = currValue;
 
-    screen.value = 5;
 });
 
 document.getElementById("six").addEventListener("click", function()
 {
-    if (oldNum === -1)
+    
+    if (currValue === 0) 
     {
-        oldNum = 6;
+        currValue = 6;
     } else 
     {
-        newNum = 6;
+        currValue = (currValue * counter) + 6;
     }
+    
+    screen.value = currValue;
 
-    screen.value = 6;
 });
 
 document.getElementById("seven").addEventListener("click", function()
 {
-    if (oldNum === -1)
+    
+    if (currValue === 0) 
     {
-        oldNum = 7;
+        currValue = 7;
     } else 
     {
-        newNum = 7;
+        currValue = (currValue * counter) + 7;
     }
+    
+    screen.value = currValue;
 
-    screen.value = 7;
 });
 
 document.getElementById("eight").addEventListener("click", function()
 {
-    if (oldNum === -1)
+    
+    if (currValue === 0) 
     {
-        oldNum = 8;
+        currValue = 8;
     } else 
     {
-        newNum = 8;
+        currValue = (currValue * counter) + 8;
     }
+    
+    screen.value = currValue;
 
-    screen.value = 8;
 });
 
 document.getElementById("nine").addEventListener("click", function()
 {
-    if (oldNum === -1)
+    
+    if (currValue === 0) 
     {
-        oldNum = 9;
+        currValue = 9;
     } else 
     {
-        newNum = 9;
+        currValue = (currValue * counter) + 9;
     }
     
-    screen.value = 9;
+    screen.value = currValue;
+
+});
+
+document.getElementById("zero").addEventListener("click", function()
+{
+    
+    if (currValue === 0) 
+    {
+        currValue = 0;
+    } else 
+    {
+        currValue = (currValue * counter) + 0;
+    }
+    
+    screen.value = currValue;
+
 });
 
 document.getElementById("add").addEventListener("click", function()
 {
-    sign = '+';
-    screen.value = '+';
     
+    nums.push(currValue);
+    currValue = 0;
+    counter = 10.0;
+    sign = '+';
+    screen.value = "+";
+
 });
 
 document.getElementById("subtract").addEventListener("click", function()
 {
-    sign = '-';
-    screen.value = '-';
     
+    nums.push(currValue);
+    currValue = 0;
+    counter = 10.0;
+    sign = '-';
+    screen.value = "-";
+
 });
 
 document.getElementById("multiply").addEventListener("click", function()
 {
-    sign = 'x';
-    screen.value = 'x';
     
+    nums.push(currValue);
+    currValue = 0;
+    counter = 10.0;
+    sign = '*';
+    screen.value = "x";
+
 });
 
 document.getElementById("divide").addEventListener("click", function()
 {
-    sign = '/';
-    screen.value = '/';
     
+    nums.push(currValue);
+    currValue = 0;
+    counter = 10.0;
+    sign = '/';
+    screen.value = "/";
+
 });
 
-function equalBtn()
+document.getElementById("equal").addEventListener("click", function()
 {
-    console.log("oldnum: " + oldNum + " newnum: " + newNum);
-    switch(sign) {
+    nums.push(currValue);
+    switch(sign) 
+    {
         case '+':
-            
-            sum = oldNum + newNum;
+            for (var i = 1; i < nums.length; i ++) 
+            {
+                console.log(i);
+                sum += nums[i];
+            }
             break;
 
         case '-':
-            
-            sum = oldNum - newNum;
+            for (var i = 1; i < nums.length; i ++) 
+            {
+                if (i === 1)
+                {
+                    sum = nums[i];
+                } else 
+                {
+                    sum -= nums[i];
+                }
+            }
             break;
-
-        case 'x':
-            
-            sum = oldNum * newNum;
+        
+        case '*':
+            for (var i = 0; i < nums.length; i ++)
+            {
+                if (i === 1)
+                {
+                    sum = nums[i];
+                } else 
+                {
+                    sum *= nums[i];
+                }
+            }
             break;
 
         case '/':
-            
-            sum = oldNum / newNum;
+            for (var i = 1; i < nums.length; i ++)
+            {
+                if (i === 1)
+                {
+                    sum = nums[i];
+                } else 
+                {
+                    sum /= nums[i];
+                }
+            }
             break;
-
+                
         default:
-            sum = sum;
+            sum = -1;
     }
 
-    oldNum = -1;
-    newNum = -1;
-    sign = ' ';
     screen.value = sum;
-    
-};
+    nums.splice(0, nums.length);
+    nums.push(sum);
+    currValue = 0;
+
+});
+
+document.getElementById("clear").addEventListener("click", function()
+{
+    nums.push(currValue);
+    nums.splice(0, nums.length);
+    currValue = 0;
+    nums.push(currValue);
+    sum = 0;
+    sign = ' ';
+    screen.value = currValue;
+
+});
