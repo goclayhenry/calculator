@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela&display=swap');
+
+html {
+    background-color: #91B0BF;
+}
+
 #my_body {
     margin-left: 35%;
     margin-top: 10%;
@@ -9,7 +15,7 @@
     grid-template-rows: 72px 72px 72px 72px 72px 72px;
 }
 
-#my_input {
+#screen {
     grid-column-start: 1;
     grid-row-start: 1;
     grid-column-end: span 3;
@@ -54,6 +60,17 @@
 button {
     border-radius: 10px;
     border-style: solid;
-    background: transparent;
+    font-size: 24pt;
+    font-family: 'Varela', sans-serif;
+}
+
+button:hover {
+    background-color: #6C838E;
+}
+
+input {
+    font-size: 24pt;
+    text-align: right;
+    padding-right: 15px;
 }
 
